@@ -12,7 +12,7 @@
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
-svn checkout https://github.com/openwrt/packages/trunk/libs/libnetfilter-queue package/libs/libnetfilter-queue
+#svn checkout https://github.com/openwrt/packages/trunk/libs/libnetfilter-queue package/libs/libnetfilter-queue
 
 # 添加额外软件包
 #git clone https://github.com/sirpdboy/luci-app-poweroffdevice package/luci-app-poweroffdevice
