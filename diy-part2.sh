@@ -14,9 +14,15 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 #svn checkout https://github.com/openwrt/packages/trunk/libs/libnetfilter-queue package/libs/libnetfilter-queue
 
-# 添加额外软件包
-#git clone https://github.com/sirpdboy/luci-app-poweroffdevice package/luci-app-poweroffdevice
+#移除不需要的软件
+rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf feeds/packages/net/smartdns
 
+#安装额外软件
+git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 
 #修正连接数（by ベ七秒鱼ベ）
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
