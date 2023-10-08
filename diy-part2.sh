@@ -21,8 +21,7 @@ rm -rf feeds/packages/net/smartdns
 #安装额外软件
 
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns 
+
 
 #修正连接数（by ベ七秒鱼ベ）
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
