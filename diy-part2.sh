@@ -19,19 +19,17 @@ rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/packages/net/smartdns
 
 #安装额外软件
-
-#安装额外软件
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns 
 
 #修正连接数（by ベ七秒鱼ベ）
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 # sed -i 's/OpenWrt /编译时间 $(TZ=UTC-8 date "+%Y.%m.%d") @ 洋洋姐姐 /g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/OpenWrt /OpenWrt @ WangYu /g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt /OpenWrt @ OVOU /g' package/lean/default-settings/files/zzz-default-settings
 
 #切换ramips内核到5.15
 #sed -i '/KERNEL_PATCHVER/cKERNEL_PATCHVER:=5.10' target/linux/ramips/Makefile
